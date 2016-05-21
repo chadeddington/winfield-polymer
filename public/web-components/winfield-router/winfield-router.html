@@ -1,0 +1,103 @@
+
+<link rel="import" href="../../bower/polymer/polymer.html">
+<link rel="import" href="../../bower/iron-flex-layout/iron-flex-layout-classes.html">
+
+<!--
+Example:
+
+    <winfield-router></winfield-router>
+
+Example:
+
+    <winfield-router>
+      <h2>Hello winfield-router</h2>
+    </winfield-router>
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="winfield-router">
+  <link rel="import" type="css" href="winfield-router.css">
+  <style include="iron-flex"></style>
+  <template>
+    <div class="banner blue center justified layout vertical">
+      <h1 class='welcome'>[[page]]</h1>
+      <div class="nav-buttons" hidden='[[!dashboard]]'>
+        <button on-click='addNewClient'>Add New Client</button>
+        <button on-click='addNewtask'>Add New Task</button>
+      </div>
+      <div class='nav-buttons' hidden='[[dashboard]]'>
+        <button on-click='viewDashboard'>Back to Dashboard</button>
+      </div>
+    </div>
+    
+    
+  </template>
+
+  <script>
+    Polymer({
+      is: 'winfield-router',
+
+      properties: {
+        page: {
+          type: String,
+          value: 'Dashboard'
+        },
+        dashboard: {
+          type: Boolean,
+          value: true,
+          notify: true
+        },
+        route: {
+          type: String,
+          value: 'dashboard',
+          notify: true,
+          observer: 'routeChange'
+        }
+      },
+
+      ready: function() {
+        // `ready` is called after all elements have been configured, but
+        // propagates bottom-up. This element's children are ready, but parents
+        // are not.
+        //
+        // This is the point where you should make modifications to the DOM (when
+        // necessary), or kick off any processes the element wants to perform.
+      },
+
+      addNewClient: function() {
+        this.route = 'new-client';
+      },
+
+      addNewtask: function() {
+        this.route = 'new-task';
+      },
+
+      routeChange: function(route) {
+        switch (route) {
+          case 'new-task': {
+            this.dashboard = false;
+            this.page = 'New Task';
+            break;
+          }
+          case 'new-client': {
+            this.dashboard = false;
+            this.page = 'New Client';
+            break;
+          }
+          case 'dashboard': {
+            this.dashboard = true;
+            this.page = 'Dashboard';
+            break;
+          }
+        }
+      },
+
+      viewDashboard: function() {
+        this.route = 'dashboard';
+      }
+      
+    });
+  </script>
+</dom-module>

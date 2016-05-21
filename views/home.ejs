@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Management System</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+	<script>
+		// Web Component Polyfill
+		var webComponentsSupported = ('registerElement' in document
+	    && 'import' in document.createElement('link')
+	    && 'content' in document.createElement('template'));
+
+	  if (!webComponentsSupported) {
+	    var wcPoly = document.createElement('script');
+	    wcPoly.src = '/bower/webcomponentsjs/webcomponents-lite.js';
+	    wcPoly.async = true;
+	    document.head.appendChild(wcPoly);
+	  }
+	</script>
+</head>
+
+<body>
+	<template is='dom-bind' id='app'>
+		<winfield-router dashboard='{{dashView}}'></winfield-router>
+		<div hidden='[[!dashView]]'>
+			<winfield-dashboard></winfield-dashboard>
+		</div>
+
+	</template>
+
+	<link rel="import" href="../web-components/winfield-router/winfield-router.html">
+	<link rel="import" href="../web-components/winfield-dashboard/winfield-dashboard.html">
+</body>
+</html>

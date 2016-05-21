@@ -1,0 +1,24 @@
+h1 {
+	font-size: 48px;
+}
+
+button {
+	background-color: #60A917;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 16px;
+	border-color: none;
+	color: white;
+}
+
+.blue {
+	background-color: #1BA1E2;
+}
+
+.banner {
+	color: white;
+}
+
+.nav-buttons {
+	margin-bottom: 20px;
+}
