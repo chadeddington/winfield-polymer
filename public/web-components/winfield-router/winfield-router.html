@@ -23,10 +23,6 @@ Example:
   <template>
     <div class="banner blue center justified layout vertical">
       <h1 class='welcome'>[[page]]</h1>
-      <div class="nav-buttons" hidden='[[!dashboard]]'>
-        <button on-click='addNewClient'>Add New Client</button>
-        <button on-click='addNewtask'>Add New Task</button>
-      </div>
       <div class='nav-buttons' hidden='[[dashboard]]'>
         <button on-click='viewDashboard'>Back to Dashboard</button>
       </div>
@@ -64,14 +60,6 @@ Example:
         //
         // This is the point where you should make modifications to the DOM (when
         // necessary), or kick off any processes the element wants to perform.
-      },
-
-      addNewClient: function() {
-        this.route = 'new-client';
-      },
-
-      addNewtask: function() {
-        this.route = 'new-task';
       },
 
       routeChange: function(route) {

@@ -2,7 +2,7 @@ body {
 	padding:0;
 	margin:0;
 	font-family: Verdana;
-	background-color: #EEEEEE;
+	background-color: #0072C6;
 }
 
 h1,h2 {
@@ -27,11 +27,4 @@ h1,h2 {
 
 .red {
 	background-color: #CE352C;
-}
-
-@media all and (max-width: 979px) {
-	.half-panel {
-		width: 100%;
-		float: none;
-	}
 }

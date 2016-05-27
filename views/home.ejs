@@ -4,6 +4,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client Management System</title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+    rel="stylesheet">
+	<link rel="import" href="../web-components/winfield-router/winfield-router.html" async>
+	<link rel="import" href="../web-components/winfield-dashboard/winfield-dashboard.html" async>
 	<script>
 		// Web Component Polyfill
 		var webComponentsSupported = ('registerElement' in document
@@ -11,24 +15,25 @@
 	    && 'content' in document.createElement('template'));
 
 	  if (!webComponentsSupported) {
-	    var wcPoly = document.createElement('script');
-	    wcPoly.src = '/bower/webcomponentsjs/webcomponents-lite.js';
-	    wcPoly.async = true;
-	    document.head.appendChild(wcPoly);
+	    var script = document.createElement('script');
+	    script.src = '/bower/webcomponentsjs/webcomponents-lite.js';
+	    script.async = true;
+	    document.head.appendChild(script);
 	  }
 	</script>
 </head>
 
 <body>
 	<template is='dom-bind' id='app'>
-		<winfield-router dashboard='{{dashView}}'></winfield-router>
+		<winfield-router dashboard='{{dashView}}' route='{{route}}'></winfield-router>
 		<div hidden='[[!dashView]]'>
-			<winfield-dashboard></winfield-dashboard>
+			<winfield-dashboard route='{{route}}'></winfield-dashboard>
 		</div>
 
-	</template>
+		<!-- Tasks View -->
 
-	<link rel="import" href="../web-components/winfield-router/winfield-router.html">
-	<link rel="import" href="../web-components/winfield-dashboard/winfield-dashboard.html">
+		<!-- Clients View -->
+
+	</template>
 </body>
 </html>

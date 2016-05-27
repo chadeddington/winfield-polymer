@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var clients = require('./controllers/clients');
+var tasks = require('./controllers/tasks');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -15,6 +17,9 @@ app.set('view engine', 'ejs');
 app.get('/', function(request, response) {
   response.render('home');
 });
+
+app.get('/clients', clients);
+app.get('/tasks', tasks);
 
 // Tasks route
 app.get('/tasks', function(request, response) {

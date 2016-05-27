@@ -1,15 +1,36 @@
-h3 {
+
+h2 {
 	text-align: center;
+}
+
+button {
+	background-color: #60A917;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 16px;
+	border-color: none;
+	color: white;
+}
+
+.bottom {
+	position: relative;
+	top: -56px;
+	left: 20px;
 }
 
 .column {
 	height: 300px;
+	border-radius: 15px;
+	border: 10px solid #0072C6;
+	margin:5px;
+	color: #2F4F4F;
 }
 
 .flex {
 	-ms-flex: 1;
-   -webkit-flex: 1;
-   flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	background-color: #EEEEEE;
 }
 
 .layout {
